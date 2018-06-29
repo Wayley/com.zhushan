@@ -1,6 +1,26 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
+  <block
+    wx:for="{{logs}}"
+    wx:for-item="log"
+  >
+    <!-- <text class="log-item">{{index + 1}}. {{log}}</text> -->
+  </block>
+  <block>
+    <switch
+      wx:for="{{objectArray}}"
+      wx:key="unique"
+      style="display: block;"
+    > {{item.id}} </switch>
+    <button bindtap="switch"> Switch </button>
+    <button bindtap="addToFront"> Add to the front </button>
+
+    <switch
+      wx:for="{{numberArray}}"
+      wx:key="*this"
+      style="display: block;"
+    > {{item}} </switch>
+    <button bindtap="addNumberToFront"> Add to the front </button>
+
   </block>
 </view>
