@@ -9,7 +9,19 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+
+/*  */
+.wrapper{
+  /* position: relative; */
+}
+/*  */
 .container{
   padding:10rpx 20rpx;
   font-size: 14px;
+}
+/* 分割线 */
+.parting{
+  height: 10rpx;
+  background: #f3f3f3;
+  width:100%;
 }

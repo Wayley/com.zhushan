@@ -45,11 +45,10 @@
 
 /* banner */
 .banner{
-  margin: 10rpx 0;
+  padding-top: 0;
 }
 .banner swiper{
   height: 180rpx;
-  height: 90px;
 }
 .banner .swiper-item image{
   width: 100%;
@@ -59,13 +58,17 @@
 
 /* menu */
 .menu{
-
+  margin: 15rpx auto;
 }
 .menu li{
   display: inline-block;
   width: 20%;
   box-sizing: border-box;
   text-align: center;
+}
+.menu li .name{
+  font-size: 24rpx;
+  margin:10rpx auto;
 }
 .menu li .icon{
   display: block;
@@ -74,17 +77,76 @@
   height: 80rpx;
   border-radius: 80rpx;
   color: #fff;
+  /* margin-bottom: 10rpx; */
 }
-.menu li .car{
-  background: #00d3be;
-  background-image: '../../images/qiuzhi.png'
+.menu li .for-car{
+  background: #ffaf1c;
+  background-image: "/images/qiuzhi.png"
 
 }
-.menu li .car:before{
-  background-image: '../../images/qiuzhi.png'
+.menu li .for-car:before{
+  background-image: "/images/qiuzhi.png"
 }
-
-
+.menu li .sale{
+  background: #67c900;
+}
+.menu li .employ{
+  background: #3f9ee1;
+}
+.menu li .transfer{
+  background: #f36564;
+}
+.menu li .help{
+  background: #fdb221;
+}
+.menu li .for-person{
+  background: #fdb221;
+}
+.menu li .land{
+  background: #f16266;
+}
+.menu li .for-job{
+  background: #15c2bc;
+}
+.menu li .for-goods{
+  background: #f68633;
+}
+.menu li .asking{
+  background: #a4aac2;
+}
+/* news-quick */
+.news-quick{
+  /* height: 80rpx; */
+}
+.news-quick .icon{
+  width: 15%;
+  height: 100%;
+  padding: 10rpx 0;
+  margin-right: 10rpx;
+  text-align: center;
+  box-sizing: border-box;
+}
+.news-quick .icon .news-quick-img{
+  width: 70rpx;
+  height: 70rpx;
+}
+.news-quick .cont{
+  flex: 1;
+}
+.news-quick .cont .item{
+  line-height: 45rpx;
+  width: 100%;
+}
+.test text{
+  display: block;
+  font-size:28rpx;
+  color:#000000;
+  line-height: 40rpx;
+  height: 120rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
+}
 /* --------------------------------------- */
 .userinfo {
   display: flex;
