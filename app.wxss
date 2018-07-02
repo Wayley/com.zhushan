@@ -25,3 +25,11 @@
   background: #f3f3f3;
   width:100%;
 }
+/* 列表标题 */
+.title{
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 28rpx;
+  border-left: 8rpx solid #60bfff;
+  padding-left: 20rpx;
+}

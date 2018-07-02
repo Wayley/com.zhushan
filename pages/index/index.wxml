@@ -62,8 +62,8 @@
   <view class="parting"></view>
 
   <!-- news_quick -->
-  <view class="container flex-wrp news-quick">
-    <view class="icon">
+  <view class="container news-quick">
+    <view class="img">
       <navigator
         url="/pages/my/my"
         hover-class="navigator-hover"
@@ -76,19 +76,20 @@
       </navigator>
     </view>
     <view class="cont">
-      <view
-        class="item"
+      <text
         wx:for="{{recomNews}}"
         wx:key="{{item.id}}"
-      >
-        {{item.title}}
-      </view>
+      >{{item.title}}</text>
     </view>
+  </view>
+  <view class="parting"></view>
 
+  <!-- 最新消息 -->
+  <view class="container">
+    <view class="title">最新消息</view>
+    <view class=""></view>
   </view>
-  <view class="test">
-    <text>在开会的灵魂是否会；客户地方撒和看哈卡卡回复安抚个公司大嘎djkld算法的好可怜的算法地方撒</text>
-  </view>
+
   <!--  -->
   <view class="container userinfo">
     <button
