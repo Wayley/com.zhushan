@@ -1,5 +1,46 @@
 <!--index.wxml-->
 <view class="container">
+  <!-- 顶部搜索 -->
+  <view class="flex-wrp top-search">
+    <view class="location">广州</view>
+    <view class="search-entry">
+      <icon
+        class="icon-small"
+        type="search"
+        size="14"
+      ></icon>
+      请输入关键字...
+    </view>
+  </view>
+  <!-- banner -->
+  <view class="banner swiper">
+    <swiper
+      indicator-dots="{{true}}"
+      autoplay="{{true}}"
+      interval="2000"
+      duration="500"
+    >
+      <block
+        wx:for="{{bannerList}}"
+        wx:key="*this"
+      >
+        <swiper-item>
+          <view class="swiper-item">
+            <navigator
+              url="{{item.url}}"
+              hover-class="navigator-hover"
+            >
+              <image
+                class="kind-list-img"
+                src="{{item.img}}"
+              ></image>
+            </navigator>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
   <view class="userinfo">
     <button
       wx:if="{{!hasUserInfo && canIUse}}"
