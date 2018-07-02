@@ -11,19 +11,20 @@ Page({
 
     bannerList: [{
       id: 'football',
-      url: 'pages/my/my',
-      img: '../../images/banner_1.png'
+      url: '/pages/my/my',
+      img: '/images/banner_1.png'
     }, {
       id: 'football',
-      url: 'pages/my/my',
-      img: '../../images/banner_1.png'
+      url: '/pages/my/my',
+      img: '/images/banner_2.png'
     }],
-    background: ['demo-text-1', 'demo-text-2', 'demo-text-3'],
-    indicatorDots: true,
-    vertical: false,
-    autoplay: false,
-    interval: 2000,
-    duration: 500
+
+    menuList: [{
+      id: 1,
+      url: '/pages/my/my',
+      iconClass: 'car',
+      name: '人找车'
+    }]
   },
   //事件处理函数
   bindViewTap: function () {

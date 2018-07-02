@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <view class="container">
   <!-- 顶部搜索 -->
-  <view class="flex-wrp top-search">
+  <!-- <view class="flex-wrp top-search">
     <view class="location">广州</view>
     <view class="search-entry">
       <icon
@@ -11,9 +11,9 @@
       ></icon>
       请输入关键字...
     </view>
-  </view>
+  </view> -->
   <!-- banner -->
-  <view class="banner swiper">
+  <!-- <view class="banner swiper">
     <swiper
       indicator-dots="{{true}}"
       autoplay="{{true}}"
@@ -39,8 +39,28 @@
         </swiper-item>
       </block>
     </swiper>
-  </view>
+  </view> -->
 
+  <!-- menu -->
+  <!-- <view class="menu">
+    <ul>
+      <li
+        wx:for="{{menuList}}"
+        wx:key="{{item.id}}"
+      >
+        <navigator
+          url="{{item.url}}"
+          hover-class="navigator-hover"
+        >
+          <span class="icon car"></span>
+          <span>{{item.name}}</span>
+        </navigator>
+      </li>
+    </ul>
+  </view> -->
+
+
+  <!--  -->
   <view class="userinfo">
     <button
       wx:if="{{!hasUserInfo && canIUse}}"

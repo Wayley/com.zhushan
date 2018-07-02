@@ -1,12 +1,12 @@
 /**index.wxss**/
 .top-search{
-  height:30px;
-  /* line-height: 30px; */
+  height:50rpx;
+  line-height: 50rpx;
 }
 .location{
   position: relative;
-  padding:5px 15px 5px 0;
-  margin-right: 10px;
+  padding-right: 25rpx;
+  margin-right: 20rpx;
 }
 .location:before{
   content: " ";
@@ -34,14 +34,13 @@
   background: #F4F4F4;
   border-radius: 50px;
   color: #808080;
-  padding:5px 10px;
   position: relative;
   padding-left: 28px;
 }
 .search-entry icon{
   position: absolute;
   left: 10px;
-  top:9px;
+  top:6px;
 }
 
 /* banner */
@@ -58,8 +57,32 @@
   border-radius: 10rpx;
 }
 
+/* menu */
+.menu{
 
+}
+.menu li{
+  display: inline-block;
+  width: 20%;
+  box-sizing: border-box;
+  text-align: center;
+}
+.menu li .icon{
+  display: block;
+  margin: auto;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 80rpx;
+  color: #fff;
+}
+.menu li .car{
+  background: #00d3be;
+  background-image: '../../images/qiuzhi.png'
 
+}
+.menu li .car:before{
+  background-image: '../../images/qiuzhi.png'
+}
 
 
 /* --------------------------------------- */
