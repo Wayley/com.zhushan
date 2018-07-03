@@ -8,7 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-
+    //
     bannerList: [
       {
         id: 'football',
@@ -92,6 +92,11 @@ Page({
       //   url: '/pages/my/my',
       // }
     ],
+    //最新消息
+    infoList: [],
+    page: 1,
+    pagesize: 15
+
   },
   //事件处理函数
   bindViewTap: function () {
@@ -99,15 +104,13 @@ Page({
       url: '../logs/logs'
     })
   },
+  goSearch: function () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
   onLoad: function () {
-    let recomNews = this.data.recomNews
-    recomNews.forEach((item, index) => {
-      console.log(item, index, 'asdfg'.slice(0, 2));
-
-      item['title'] = item['title'].slice(0, 20) + '...'
-    });
-    // this.setData({ recomNews })
-    console.log()
+    this.getData()
 
     //
     if (app.globalData.userInfo) {
@@ -138,11 +141,45 @@ Page({
     }
   },
   getUserInfo: function (e) {
-    console.log(e)
+    wx.showToast({
+      title: 'hhh',
+      duration: 2000
+    })
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  mockData() {
+    wx.showNavigationBarLoading()
+    return new Promise((resolve, reject) => {
+      let arr = []
+      for (let i = 0; i < this.data.pagesize; i++) {
+        let item = {
+          id: 1,
+          cont: this.data.page + '今天是个好日子,深圳市即将开通通往M43星球的航班。这是国内首次通往外太空的民营航线。售票电话：13886871980',
+          type: '出租',
+          time: '2018-7-3'
+        }
+        arr.push(item)
+      }
+      resolve(arr)
+    })
+  },
+  getMore() {
+    console.log(this.data.page, '====')
+    this.setData({
+      page: this.data.page + 1
+    });
+    this.getData();
+  },
+  getData: function () {
+    this.mockData().then(res => {
+      console.log(123, '-----', res)
+      this.setData({
+        infoList: res
+      })
     })
   }
 })

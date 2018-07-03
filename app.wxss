@@ -1,4 +1,10 @@
 @import './pages/common/index.wxss';
+/* body{
+  height: 100%;
+}
+view{
+  height: 100%;
+} */
 /**app.wxss**/
 .container2 {
   height: 100%;
@@ -9,7 +15,16 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 }
-
+.clearfix{
+  overflow: auto;
+  _height:1%;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
+}
 /*  */
 .wrapper{
   /* position: relative; */

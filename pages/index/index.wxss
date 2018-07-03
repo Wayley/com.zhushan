@@ -154,6 +154,38 @@
   left: 0;
   top: 15rpx;
 }
+/* 首页信息列表 */
+.info-container{}
+.info-list{}
+.info-list .info-item{
+  display: block;
+  border-bottom: 1rpx solid #ececec;
+  padding: 20rpx 0;
+}
+.info-list  .info-cont{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  line-height: 44rpx;
+  margin-bottom: 20rpx;
+}
+.info-list .tag{
+  width: 120rpx;
+  height: 40rpx;
+  text-align: center;
+  border: 1px solid;
+  border-radius: 6rpx;
+}
+.info-list .blue{
+  border-color: #60bfff;
+  color:#60bfff;
+
+}
+
+
 /* --------------------------------------- */
 .userinfo {
   display: flex;

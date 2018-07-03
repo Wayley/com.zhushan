@@ -2,13 +2,15 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/my/my"
+    "pages/my/my",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#60bfff",
     "navigationBarTitleText": "宝丰便民平台",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "onReachBottomDistance": 50
   },
   "tabBar": {
     "color": "#353535",

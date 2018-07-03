@@ -3,7 +3,10 @@
   <!-- 顶部搜索 -->
   <view class="container flex-wrp top-search">
     <view class="location">广州</view>
-    <view class="search-entry">
+    <view
+      class="search-entry"
+      bindtap="goSearch"
+    >
       <icon
         class="icon-small"
         type="search"
@@ -85,13 +88,30 @@
   <view class="parting"></view>
 
   <!-- 最新消息 -->
-  <view class="container">
+  <view class="container info-container">
     <view class="title">最新消息</view>
-    <view class=""></view>
+    <scroll-view
+      scroll-y="{{true}}"
+      bindscrolltolower="getMore"
+    >
+      <view class="info-list">
+        <view
+          class="info-item"
+          wx:for="{{infoList}}"
+          wx:key="id"
+        >
+          <text class="info-cont">{{item.cont}}</text>
+          <view class="clearfix">
+            <span class="fl tag blue">{{item.type}}</span>
+            <span class="fr">{{item.time}}</span>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
   </view>
 
   <!--  -->
-  <view class="container userinfo">
+  <!-- <view class="container userinfo">
     <button
       wx:if="{{!hasUserInfo && canIUse}}"
       open-type="getUserInfo"
@@ -115,5 +135,5 @@
       longitude="深圳经度"
       latitude="深圳纬度"
     ></map>
-  </view>
+  </view> -->
 </view>
