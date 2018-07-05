@@ -1,0 +1,9 @@
+*/node_modules/
+*/psd/
+*/dist/
+*/debug.log
+*/index_prod.html
+*/.next/
+
+
+.idea/*
