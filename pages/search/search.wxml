@@ -22,7 +22,7 @@
   </view>
   <view class="search-result">
     <scroll-view
-      scroll-y="true"
+      scroll-y
       bindscrolltolower="searchScrollLower"
     >
       <view

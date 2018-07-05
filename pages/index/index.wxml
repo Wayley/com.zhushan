@@ -25,7 +25,7 @@
     >
       <block
         wx:for="{{bannerList}}"
-        wx:key="*this"
+        wx:key="id"
       >
         <swiper-item>
           <view class="swiper-item">
@@ -50,7 +50,7 @@
     <ul>
       <li
         wx:for="{{menuList}}"
-        wx:key="{{item.id}}"
+        wx:key="id"
       >
         <navigator
           url="{{item.url}}"
@@ -81,7 +81,7 @@
     <view class="cont">
       <text
         wx:for="{{recomNews}}"
-        wx:key="{{item.id}}"
+        wx:key="id"
       >{{item.title}}</text>
     </view>
   </view>
@@ -91,7 +91,7 @@
   <view class="container info-container">
     <view class="title">最新消息</view>
     <scroll-view
-      scroll-y="{{true}}"
+      scroll-y
       bindscrolltolower="getMore"
     >
       <view class="info-list">

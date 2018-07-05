@@ -11,11 +11,11 @@ Page({
     //
     bannerList: [
       {
-        id: 'football',
+        id: 'football1',
         url: '/pages/my/my',
         img: '/images/banner_1.png'
       }, {
-        id: 'football',
+        id: 'football2',
         url: '/pages/my/my',
         img: '/images/banner_2.png'
       }
@@ -157,8 +157,8 @@ Page({
       let arr = []
       for (let i = 0; i < this.data.pagesize; i++) {
         let item = {
-          id: 1,
-          cont: this.data.page + '今天是个好日子,深圳市即将开通通往M43星球的航班。这是国内首次通往外太空的民营航线。售票电话：13886871980',
+          id: i,
+          cont: i + '===' + this.data.page + '今天是个好日子,深圳市即将开通通往M43星球的航班。这是国内首次通往外太空的民营航线。售票电话：13886871980',
           type: '出租',
           time: '2018-7-3'
         }
@@ -168,7 +168,7 @@ Page({
     })
   },
   getMore() {
-    console.log(this.data.page, '====')
+    console.log(this.data.page, '====12')
     this.setData({
       page: this.data.page + 1
     });
