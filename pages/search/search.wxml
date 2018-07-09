@@ -1,5 +1,9 @@
 <view class="search">
   <view class="search-bar">
+    <view
+      class="search-cancel"
+      bindtap="keywordSearch"
+    >搜索</view>
     <view class="search-wrap">
       <icon
         type="search"
@@ -15,10 +19,7 @@
         value="{{searchKeyword}}"
       />
     </view>
-    <view
-      class="search-cancel"
-      bindtap="keywordSearch"
-    >搜索</view>
+
   </view>
   <view class="search-result">
     <scroll-view

@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    scrollHeight: '0rpx',
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
@@ -98,19 +99,22 @@ Page({
     pagesize: 15
 
   },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.switchTab({
-      url: '../logs/logs'
-    })
-  },
-  goSearch: function () {
-    wx.navigateTo({
-      url: '../search/search'
-    })
-  },
+
   onLoad: function () {
-    this.getData()
+    var _this = this;
+    _this.getData()
+
+    wx.getSystemInfo({
+      success: function (res) {
+
+        const h = (750 * res.windowHeight / res.windowWidth) - 50;
+        console.log(11, res, res.windowWidth, 750 / res.windowWidth, h)
+        // 设置滚动页面高度
+        // _this.setData({
+        //   scrollHeight: h + 'rpx'
+        // })
+      }
+    })
 
     //
     if (app.globalData.userInfo) {
@@ -139,6 +143,25 @@ Page({
         }
       })
     }
+  },
+  // 下拉刷新
+  onPullDownRefresh: function () {
+    // TODO:
+    setTimeout(() => {
+      wx.stopPullDownRefresh();
+
+    }, 5000)
+  },
+  //事件处理函数
+  bindViewTap: function () {
+    wx.switchTab({
+      url: '../logs/logs'
+    })
+  },
+  goSearch: function () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   },
   getUserInfo: function (e) {
     wx.showToast({

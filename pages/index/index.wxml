@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="wrapper">
+<view class="wrapper main-index">
   <!-- 顶部搜索 -->
   <view class="container flex-wrp top-search">
     <view class="location">广州</view>
@@ -15,100 +15,105 @@
       请输入关键字...
     </view>
   </view>
-  <!-- banner -->
-  <view class="container banner swiper">
-    <swiper
-      indicator-dots="{{true}}"
-      autoplay="{{true}}"
-      interval="2000"
-      duration="500"
-    >
-      <block
-        wx:for="{{bannerList}}"
-        wx:key="id"
-      >
-        <swiper-item>
-          <view class="swiper-item">
-            <navigator
-              url="{{item.url}}"
-              hover-class="navigator-hover"
-              open-type="switchTab"
-            >
-              <image
-                class="kind-list-img"
-                src="{{item.img}}"
-              ></image>
-            </navigator>
-          </view>
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-
-  <!-- menu -->
-  <view class="container menu">
-    <ul>
-      <li
-        wx:for="{{menuList}}"
-        wx:key="id"
-      >
-        <navigator
-          url="{{item.url}}"
-          hover-class="navigator-hover"
-        >
-          <span class="icon {{item.iconClass}}"></span>
-          <view class="name">{{item.name}}</view>
-        </navigator>
-      </li>
-    </ul>
-  </view>
-  <view class="parting"></view>
-
-  <!-- news_quick -->
-  <view class="container news-quick">
-    <view class="img">
-      <navigator
-        url="/pages/my/my"
-        hover-class="navigator-hover"
-        open-type="switchTab"
-      >
-        <image
-          class="news-quick-img"
-          src="/images/news_quick.png"
-        ></image>
-      </navigator>
-    </view>
-    <view class="cont">
-      <text
-        wx:for="{{recomNews}}"
-        wx:key="id"
-      >{{item.title}}</text>
-    </view>
-  </view>
-  <view class="parting"></view>
-
-  <!-- 最新消息 -->
-  <view class="container info-container">
-    <view class="title">最新消息</view>
+  <view class="main-index-contain">
     <scroll-view
       scroll-y
       bindscrolltolower="getMore"
     >
-      <view class="info-list">
-        <view
-          class="info-item"
-          wx:for="{{infoList}}"
-          wx:key="id"
+      <!-- banner -->
+      <view class="container banner swiper">
+        <swiper
+          indicator-dots="{{true}}"
+          autoplay="{{true}}"
+          interval="2000"
+          duration="500"
         >
-          <text class="info-cont">{{item.cont}}</text>
-          <view class="clearfix">
-            <span class="fl tag blue">{{item.type}}</span>
-            <span class="fr">{{item.time}}</span>
+          <block
+            wx:for="{{bannerList}}"
+            wx:key="id"
+          >
+            <swiper-item>
+              <view class="swiper-item">
+                <navigator
+                  url="{{item.url}}"
+                  hover-class="navigator-hover"
+                  open-type="switchTab"
+                >
+                  <image
+                    class="kind-list-img"
+                    src="{{item.img}}"
+                  ></image>
+                </navigator>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+      <!-- menu -->
+      <view class="container menu">
+        <ul>
+          <li
+            wx:for="{{menuList}}"
+            wx:key="id"
+          >
+            <navigator
+              url="{{item.url}}"
+              hover-class="navigator-hover"
+            >
+              <span class="icon {{item.iconClass}}"></span>
+              <view class="name">{{item.name}}</view>
+            </navigator>
+          </li>
+        </ul>
+      </view>
+      <view class="parting"></view>
+
+      <!-- news_quick -->
+      <view class="container news-quick">
+        <view class="img">
+          <navigator
+            url="/pages/my/my"
+            hover-class="navigator-hover"
+            open-type="switchTab"
+          >
+            <image
+              class="news-quick-img"
+              src="/images/news_quick.png"
+            ></image>
+          </navigator>
+        </view>
+        <view class="cont">
+          <text
+            wx:for="{{recomNews}}"
+            wx:key="id"
+          >{{item.title}}</text>
+        </view>
+      </view>
+      <view class="parting"></view>
+
+      <!-- 最新消息 -->
+      <view class="container info-container">
+        <view class="title">最新消息</view>
+        <view class="info-list">
+          <view
+            class="info-item"
+            wx:for="{{infoList}}"
+            wx:key="id"
+          >
+            <text class="info-cont">{{item.cont}}</text>
+            <view class="clearfix">
+              <span class="fl tag blue">{{item.type}}</span>
+              <span class="fr">{{item.time}}</span>
+            </view>
           </view>
         </view>
       </view>
     </scroll-view>
   </view>
+
+
+
 
   <!--  -->
   <!-- <view class="container userinfo">
