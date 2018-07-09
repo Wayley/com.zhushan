@@ -2,7 +2,10 @@
 <view class="wrapper main-index">
   <!-- 顶部搜索 -->
   <view class="container flex-wrp top-search">
-    <view class="location">广州</view>
+    <view
+      class="location"
+      bindtap="setCity"
+    >广州</view>
     <view
       class="search-entry"
       bindtap="goSearch"

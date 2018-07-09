@@ -1,0 +1,25 @@
+<view class="search">
+  <view class="search-bar">
+    顶部
+  </view>
+  <view class="search-result">
+    <scroll-view
+      scroll-y
+      bindscrolltolower="searchScrollLower"
+    >
+      <view>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi nam voluptas iure, ad iusto facilis reprehenderit dicta quis, possimus ipsam veniam, pariatur dolorem ullam velit. Quos libero repellat explicabo sed.
+      </view>
+      <view>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi nam voluptas iure, ad iusto facilis reprehenderit dicta quis, possimus ipsam veniam, pariatur dolorem ullam velit. Quos libero repellat explicabo sed.
+      </view>
+      <view
+        class="result-item"
+        wx:for="{{list}}"
+        wx:key="index"
+      >
+        {{item.name}}
+      </view>
+    </scroll-view>
+  </view>
+</view>

@@ -158,6 +158,11 @@ Page({
       url: '../logs/logs'
     })
   },
+  setCity: function () {
+    wx.navigateTo({
+      url: '../city/city'
+    })
+  },
   goSearch: function () {
     wx.navigateTo({
       url: '../search/search'

@@ -1,0 +1,46 @@
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*搜索*/
+.search{
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+.search-bar{
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  background: #f4f4f4;
+  height: 60rpx;
+}
+
+/*搜索结果*/
+.search-result{
+  flex: auto;
+  position: relative;
+  height: 300rpx;
+}
+.search-result scroll-view{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+}
+.result-item{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0 20rpx 110rpx;
+  overflow: hidden;
+  border-bottom: 2rpx solid #e5e5e5;
+}
+
+
