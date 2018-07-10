@@ -1,70 +1,137 @@
-var util = require('../../utils/util.js')
+//
+const util = require('../../utils/util.js')
+// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
+
+// Page(object)中的object尽可能少
 Page({
+  // 页面的初始数据
   data: {
-    searchKeyword: '',  //需要搜索的字符
-    searchSongList: [], //放置返回数据的数组
-    isFromSearch: true,   // 用于判断searchSongList数组是不是空数组，默认true，空的数组
-    searchPageNum: 1,   // 设置加载的第几次，默认是第一次
-    callbackcount: 15,      //返回数据的个数
-    searchLoading: false, //"上拉加载"的变量，默认false，隐藏
-    searchLoadingComplete: false  //“没有数据”的变量，默认false，隐藏
-  },
-  //输入框事件，每输入一个字符，就会触发一次
-  bindKeywordInput: function (e) {
-    console.log("输入框事件")
-    this.setData({
-      searchKeyword: e.detail.value
-    })
-  },
-  //搜索，访问网络
-  fetchSearchList: function () {
-    let that = this;
-    let searchKeyword = that.data.searchKeyword,//输入框字符串作为参数
-      searchPageNum = that.data.searchPageNum,//把第几次加载次数作为参数
-      callbackcount = that.data.callbackcount; //返回数据的个数
-    //访问网络
-    util.getSearchMusic(searchKeyword, searchPageNum, callbackcount, function (data) {
-      console.log(222, data)
-      //判断是否有数据，有则取数据
-      if (data.data.song.curnum != 0) {
-        let searchList = [];
-        //如果isFromSearch是true从data中取出数据，否则先从原来的数据继续添加
-        that.data.isFromSearch ? searchList = data.data.song.list : searchList = that.data.searchSongList.concat(data.data.song.list)
-        console.log(123, searchList)
-        that.setData({
-          searchSongList: searchList, //获取数据数组
-          zhida: data.data.zhida, //存放歌手属性的对象
-          searchLoading: true   //把"上拉加载"的变量设为false，显示
-        });
-        //没有数据了，把“没有数据”显示，把“上拉加载”隐藏
-      } else {
-        that.setData({
-          searchLoadingComplete: true, //把“没有数据”设为true，显示
-          searchLoading: false  //把"上拉加载"的变量设为false，隐藏
-        });
+    olist: [],
+    list: [],
+    page: 1,
+
+    bannerList: [
+      {
+        id: 'football1',
+        url: '/pages/my/my',
+        img: '/images/banner_1.png'
+      }, {
+        id: 'football2',
+        url: '/pages/my/my',
+        img: '/images/banner_2.png'
       }
-    })
+    ],
+
+    menuList: [
+      {
+        id: 1,
+        url: '/pages/my/my',
+        iconClass: 'for-car',
+        name: '人找车'
+      }, {
+        id: 2,
+        url: '/pages/my/my',
+        iconClass: 'sale',
+        name: '出售'
+      }, {
+        id: 3,
+        url: '/pages/my/my',
+        iconClass: 'employ',
+        name: '招聘'
+      }, {
+        id: 4,
+        url: '/pages/my/my',
+        iconClass: 'transfer',
+        name: '转让'
+      }, {
+        id: 5,
+        url: '/pages/my/my',
+        iconClass: 'help',
+        name: '求助'
+      }, {
+        id: 6,
+        url: '/pages/my/my',
+        iconClass: 'for-person',
+        name: '车找人'
+      }, {
+        id: 7,
+        url: '/pages/my/my',
+        iconClass: 'land',
+        name: '出租'
+      }, {
+        id: 8,
+        url: '/pages/my/my',
+        iconClass: 'for-job',
+        name: '求职'
+      }, {
+        id: 9,
+        url: '/pages/my/my',
+        iconClass: 'for-goods',
+        name: '求购'
+      }, {
+        id: 0,
+        url: '/pages/my/my',
+        iconClass: 'asking',
+        name: '打听'
+      },
+    ],
+
+    recomNews: [
+      {
+        id: 1,
+        title: '勒布朗-詹姆斯的经纪团队正式宣布，詹姆斯与湖人达成4年1.54亿美元口头协议，其中第四年为球员选项，双方将等到当地时间7月6日合约冻结期结束后正式签约。',
+        url: '/pages/my/my',
+      },
+      {
+        id: 2,
+        title: '2018年休赛期最大悬念至此揭晓，詹姆斯结束与老东家骑士的合作，NBA生涯首次转战西部',
+        url: '/pages/my/my',
+      },
+      // {
+      //   id: 3,
+      //   title: '生涯首次转战西部',
+      //   url: '/pages/my/my',
+      // }
+    ],
+
+
   },
-  //点击搜索按钮，触发事件
-  keywordSearch: function (e) {
-    this.setData({
-      searchPageNum: 1,   //第一次加载，设置1
-      searchSongList: [],  //放置返回数据的数组,设为空
-      isFromSearch: true,  //第一次加载，设置true
-      searchLoading: true,  //把"上拉加载"的变量设为true，显示
-      searchLoadingComplete: false //把“没有数据”设为false，隐藏
-    })
-    this.fetchSearchList();
+  // cycle-hook 监听页面加载
+  onLoad(options) {
+    this.mockoData();
+    this.getData();
   },
-  //滚动到底部触发事件
-  searchScrollLower: function () {
-    let that = this;
-    if (that.data.searchLoading && !that.data.searchLoadingComplete) {
-      that.setData({
-        searchPageNum: that.data.searchPageNum + 1,  //每次触发上拉事件，把searchPageNum+1
-        isFromSearch: false  //触发到上拉事件，把isFromSearch设为为false
-      });
-      that.fetchSearchList();
-    }
+  // cycle-hook 监听页面初次渲染完成
+  onReady() { },
+  // cycle-hook 监听页面显示
+  onShow() { },
+  // cycle-hook 监听页面隐藏
+  onHid() { },
+  // cycle-hook 监听页面卸载
+  onUnload() { },
+
+  // 页面相关事件处理函数--监听用户下拉动作
+  onPullDownRefresh() { },
+  // 页面上拉触底事件的处理事件
+  onReachBottom() { },
+  // 用户点击右上角转发
+  onShareAppMessage() { },
+  // 页面滚动触发事件的处理事件
+  onPageScroll() { },
+  // 当前是tab页时，点击tab页时触发
+  onTabItemTap(item) { },
+
+
+
+  // 自定义数据
+  customData: {},
+  // 自定义handler
+  viewTap() { },
+
+  goSearch() {
+    wx.navigateTo({
+      url: '../search/search'
+    })
   }
+
 })

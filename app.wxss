@@ -6,6 +6,9 @@ view{
   height: 100%;
 } */
 /**app.wxss**/
+.base-color{
+  color:#60bfff
+}
 .container2 {
   height: 100%;
   display: flex;

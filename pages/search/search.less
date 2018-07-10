@@ -1,0 +1,231 @@
+page{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/*搜索*/
+.main-index{
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  // background: #fff;
+  // 顶部定位和搜索
+  .search-bar{
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20rpx;
+    // background: #f4f4f4;
+
+    height:50rpx;
+    line-height: 50rpx;
+    .location{
+      position: relative;
+      padding-right: 25rpx;
+      margin-right: 20rpx;
+      &:before{
+        content: " ";
+        display: inline-block;
+        height: 12rpx;
+        width: 12rpx;
+        border-width: 2rpx 2rpx 0 0;
+        border-color: #888888;
+        border-style: solid;
+        transform: matrix(0.71, 0.71, 0.71, -0.71, 0, 0);
+        position: absolute;
+        top: 50%;
+        margin-top: -10rpx;
+        right: 0rpx;
+      }
+    }
+    .search-entry{
+      flex: 1;
+      background: #F4F4F4;
+      border-radius: 50px;
+      color: #808080;
+      position: relative;
+      padding-left: 28px;
+      icon{
+        position: absolute;
+        left: 10px;
+        top:6px;
+      }
+    }
+    .cancel{
+      // padding-right: 25rpx;
+      margin-left: 20rpx;
+      color:#60bfff;
+    }
+
+  }
+  // 主体
+  .main-index-contain{
+    flex: auto;
+    position: relative;
+    height: 300rpx;
+    scroll-view{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+    // banner
+    .banner{
+      padding-top: 0;
+      swiper{
+        height: 180rpx;
+      }
+      .swiper-item image{
+        width: 100%;
+        height: 180rpx;
+        border-radius: 10rpx;
+      }
+    }
+    // menu
+    .menu{
+      margin: 15rpx auto;
+      li{
+        display: inline-block;
+        width: 20%;
+        box-sizing: border-box;
+        text-align: center;
+        .name{
+          font-size: 24rpx;
+          margin:10rpx auto;
+        }
+        .icon{
+          display: block;
+          margin: auto;
+          width: 80rpx;
+          height: 80rpx;
+          border-radius: 80rpx;
+          color: #fff;
+        }
+
+        .for-car{
+          background: #ffaf1c;
+          background-image: "/images/qiuzhi.png";
+          &:before{
+            background-image: "/images/qiuzhi.png"
+          }
+        }
+        .sale{
+          background: #67c900;
+        }
+        .employ{
+          background: #3f9ee1;
+        }
+        .transfer{
+          background: #f36564;
+        }
+        .help{
+          background: #fdb221;
+        }
+        .for-person{
+          background: #fdb221;
+        }
+        .land{
+          background: #f16266;
+        }
+        .for-job{
+          background: #15c2bc;
+        }
+        .for-goods{
+          background: #f68633;
+        }
+        .asking{
+          background: #a4aac2;
+        }
+      }
+    }
+    // news-quick
+    .news-quick{
+      position: relative;
+      padding: 20rpx;
+      .img{
+        position: absolute;
+        width:70rpx;
+        margin-right: 20rpx;
+        image{
+          width: 100%;
+          height: 80rpx;
+        }
+      }
+      .cont{
+        padding-left: 20rpx;
+        text{
+          display: block;
+          color:#000000;
+          line-height: 40rpx;
+          height: 40rpx;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow:ellipsis;
+          margin-left: 70rpx;
+          font-size: 26rpx;
+          position: relative;
+          padding-left: 10px;
+          &:before{
+            content: "";
+            width:10rpx;
+            height: 10rpx;
+            background: #60bfff;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 15rpx;
+          }
+        }
+      }
+    }
+    // 最新资讯
+    .info-container{
+      .info-list{
+        .info-item{
+          display: block;
+          border-bottom: 1rpx solid #ececec;
+          padding: 20rpx 0;
+          .info-cont{
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis;
+            line-height: 44rpx;
+            margin-bottom: 20rpx;
+          }
+          .tag{
+            width: 120rpx;
+            height: 40rpx;
+            text-align: center;
+            border: 1px solid;
+            border-radius: 6rpx;
+          }
+          .blue{
+            border-color: #60bfff;
+            color:#60bfff;
+
+          }
+        }
+      }
+    }
+
+
+    //
+    .result-item{
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      padding: 20rpx 0 20rpx 110rpx;
+      overflow: hidden;
+      border-bottom: 2rpx solid #e5e5e5;
+    }
+  }
+}
+
+
+

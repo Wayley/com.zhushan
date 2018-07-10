@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/city/city",
     "pages/index/index",
     "pages/logs/logs",
     "pages/my/my",
-    "pages/search/search",
-    "pages/city/city"
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,7 +33,7 @@
         "selectedIconPath": "images/log_selected.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/city/city",
         "text": "我的",
         "iconPath": "images/home_selected.png",
         "selectedIconPath": "images/log_selected.png"
