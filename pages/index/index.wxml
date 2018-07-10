@@ -1,7 +1,6 @@
-<!--index.wxml-->
 <view class="wrapper main-index">
   <!-- 顶部搜索 -->
-  <view class="container flex-wrp top-search">
+  <view class="container search-bar">
     <view
       class="location"
       bindtap="setCity"
@@ -21,7 +20,7 @@
   <view class="main-index-contain">
     <scroll-view
       scroll-y
-      bindscrolltolower="getMore"
+      bindscrolltolower="searchScrollLower"
     >
       <!-- banner -->
       <view class="container banner swiper">
@@ -101,8 +100,8 @@
         <view class="info-list">
           <view
             class="info-item"
-            wx:for="{{infoList}}"
-            wx:key="id"
+            wx:for="{{list}}"
+            wx:key="index"
           >
             <text class="info-cont">{{item.cont}}</text>
             <view class="clearfix">
@@ -114,34 +113,4 @@
       </view>
     </scroll-view>
   </view>
-
-
-
-
-  <!--  -->
-  <!-- <view class="container userinfo">
-    <button
-      wx:if="{{!hasUserInfo && canIUse}}"
-      open-type="getUserInfo"
-      bindgetuserinfo="getUserInfo"
-    > 获取头像昵称 </button>
-    <block wx:else>
-      <image
-        bindtap="bindViewTap"
-        class="userinfo-avatar"
-        src="{{userInfo.avatarUrl}}"
-        background-size="cover"
-      ></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  <view>
-    <map
-      longitude="深圳经度"
-      latitude="深圳纬度"
-    ></map>
-  </view> -->
 </view>

@@ -1,24 +1,115 @@
-<view class="search">
-  <view class="search-bar">
-    顶部
+<view class="wrapper main-index">
+  <!-- 顶部搜索 -->
+  <view class="container search-bar">
+    <view
+      class="location"
+      bindtap="setCity"
+    >广州</view>
+    <view
+      class="search-entry"
+      bindtap="goSearch"
+    >
+      <icon
+        class="icon-small"
+        type="search"
+        size="14"
+      ></icon>
+      请输入关键字...
+    </view>
   </view>
-  <view class="search-result">
+  <view class="main-index-contain">
     <scroll-view
       scroll-y
       bindscrolltolower="searchScrollLower"
     >
-      <view>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi nam voluptas iure, ad iusto facilis reprehenderit dicta quis, possimus ipsam veniam, pariatur dolorem ullam velit. Quos libero repellat explicabo sed.
+      <!-- banner -->
+      <view class="container banner swiper">
+        <swiper
+          indicator-dots="{{true}}"
+          autoplay="{{true}}"
+          interval="2000"
+          duration="500"
+        >
+          <block
+            wx:for="{{bannerList}}"
+            wx:key="id"
+          >
+            <swiper-item>
+              <view class="swiper-item">
+                <navigator
+                  url="{{item.url}}"
+                  hover-class="navigator-hover"
+                  open-type="switchTab"
+                >
+                  <image
+                    class="kind-list-img"
+                    src="{{item.img}}"
+                  ></image>
+                </navigator>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
       </view>
-      <view>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi nam voluptas iure, ad iusto facilis reprehenderit dicta quis, possimus ipsam veniam, pariatur dolorem ullam velit. Quos libero repellat explicabo sed.
+
+      <!-- menu -->
+      <view class="container menu">
+        <ul>
+          <li
+            wx:for="{{menuList}}"
+            wx:key="id"
+          >
+            <navigator
+              url="{{item.url}}"
+              hover-class="navigator-hover"
+            >
+              <span class="icon {{item.iconClass}}"></span>
+              <view class="name">{{item.name}}</view>
+            </navigator>
+          </li>
+        </ul>
       </view>
-      <view
-        class="result-item"
-        wx:for="{{list}}"
-        wx:key="index"
-      >
-        {{item.name}}
+      <view class="parting"></view>
+
+      <!-- news_quick -->
+      <view class="container news-quick">
+        <view class="img">
+          <navigator
+            url="/pages/my/my"
+            hover-class="navigator-hover"
+            open-type="switchTab"
+          >
+            <image
+              class="news-quick-img"
+              src="/images/news_quick.png"
+            ></image>
+          </navigator>
+        </view>
+        <view class="cont">
+          <text
+            wx:for="{{recomNews}}"
+            wx:key="id"
+          >{{item.title}}</text>
+        </view>
+      </view>
+      <view class="parting"></view>
+
+      <!-- 最新消息 -->
+      <view class="container info-container">
+        <view class="title">最新消息</view>
+        <view class="info-list">
+          <view
+            class="info-item"
+            wx:for="{{list}}"
+            wx:key="index"
+          >
+            <text class="info-cont">{{item.cont}}</text>
+            <view class="clearfix">
+              <span class="fl tag blue">{{item.type}}</span>
+              <span class="fr">{{item.time}}</span>
+            </view>
+          </view>
+        </view>
       </view>
     </scroll-view>
   </view>

@@ -1,15 +1,15 @@
-//index.js
-//获取应用实例
-const app = getApp()
+//
+const util = require('../../utils/util.js')
+// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
 
+// Page(object)中的object尽可能少
 Page({
+  // 页面的初始数据
   data: {
-    scrollHeight: '0rpx',
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    //
+    olist: [],
+    list: [],
+    page: 1,
+
     bannerList: [
       {
         id: 'football1',
@@ -93,121 +93,77 @@ Page({
       //   url: '/pages/my/my',
       // }
     ],
-    //最新消息
-    infoList: [],
-    page: 1,
-    pagesize: 15
+
 
   },
-
-  onLoad: function () {
-    var _this = this;
-    _this.getData()
-
-    wx.getSystemInfo({
-      success: function (res) {
-
-        const h = (750 * res.windowHeight / res.windowWidth) - 50;
-        console.log(11, res, res.windowWidth, 750 / res.windowWidth, h)
-        // 设置滚动页面高度
-        // _this.setData({
-        //   scrollHeight: h + 'rpx'
-        // })
-      }
-    })
-
-    //
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  // 下拉刷新
-  onPullDownRefresh: function () {
-    // TODO:
-    setTimeout(() => {
-      wx.stopPullDownRefresh();
-
-    }, 5000)
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.switchTab({
-      url: '../logs/logs'
-    })
-  },
-  setCity: function () {
-    wx.navigateTo({
-      url: '../city/city'
-    })
-  },
-  goSearch: function () {
-    wx.navigateTo({
-      url: '../search/search'
-    })
-  },
-  getUserInfo: function (e) {
-    wx.showToast({
-      title: 'hhh',
-      duration: 2000
-    })
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-  mockData() {
-    wx.showNavigationBarLoading()
-    return new Promise((resolve, reject) => {
-      let arr = []
-      for (let i = 0; i < this.data.pagesize; i++) {
-        let item = {
-          id: i,
-          cont: i + '===' + this.data.page + '今天是个好日子,深圳市即将开通通往M43星球的航班。这是国内首次通往外太空的民营航线。售票电话：13886871980',
-          type: '出租',
-          time: '2018-7-3'
-        }
-        arr.push(item)
-      }
-      resolve(arr)
-    })
-  },
-  getMore() {
-    console.log(this.data.page, '====12')
-    this.setData({
-      page: this.data.page + 1
-    });
+  // cycle-hook 监听页面加载
+  onLoad(options) {
+    this.mockoData();
     this.getData();
   },
-  getData: function () {
-    this.mockData().then(res => {
-      console.log(123, '-----', res)
-      this.setData({
-        infoList: res
-      })
+  // cycle-hook 监听页面初次渲染完成
+  onReady() { },
+  // cycle-hook 监听页面显示
+  onShow() { },
+  // cycle-hook 监听页面隐藏
+  onHid() { },
+  // cycle-hook 监听页面卸载
+  onUnload() { },
+
+  // 页面相关事件处理函数--监听用户下拉动作
+  onPullDownRefresh() { },
+  // 页面上拉触底事件的处理事件
+  onReachBottom() { },
+  // 用户点击右上角转发
+  onShareAppMessage() { },
+  // 页面滚动触发事件的处理事件
+  onPageScroll() { },
+  // 当前是tab页时，点击tab页时触发
+  onTabItemTap(item) { },
+
+
+
+  // 自定义数据
+  customData: {},
+  // 自定义handler
+  viewTap() { },
+
+  mockoData() {
+    var str = '我不知道这会随机出现什么字，但是我必须要用到这个随机汉字，只能这样了，你觉得好吗？那就嘿嘿嘿，字数不够啊，再来几个，这下应该够了吧';
+    const types = ['出租', '车找人', '招聘', '失物招领']
+    var olist = [];
+    for (let index = 0; index < 100; index++) {
+      const item = {
+        index,
+        name: index + 1 + 'item',
+        type: types[index % 4],
+        cont: str,
+        time: index % 2 == 0 ? '06-14' : '07-13'
+      }
+      olist.push(item)
+    }
+    this.setData({
+      olist
+    });
+  },
+  getData() {
+    let list = this.data.list;
+    const s = (this.data.page - 1) * 15;
+    const e = (this.data.page + 1) * 15;
+    const nlist = this.data.olist.slice(s, e);
+    list = list.concat(nlist)
+    // console.log(nlist, s, e)
+
+    this.setData({
+      list
     })
-  }
+  },
+  searchScrollLower() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    console.log(this.data.page)
+    this.getData();
+  },
+
 })
