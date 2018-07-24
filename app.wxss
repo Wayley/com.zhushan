@@ -45,9 +45,9 @@ view{
 }
 /* 列表标题 */
 .title{
-  height: 36rpx;
-  line-height: 36rpx;
-  font-size: 28rpx;
-  border-left: 8rpx solid #60bfff;
+  height: 28rpx;
+  line-height: 28rpx;
+  font-size: 30rpx;
+  border-left: 14rpx solid #60bfff;
   padding-left: 20rpx;
 }

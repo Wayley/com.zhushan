@@ -1,0 +1,83 @@
+.publish {
+  /* 上传 */
+  /*  */
+}
+.publish .publish-section {
+  padding: 30rpx 20rpx;
+}
+.publish .tag-list {
+  margin-top: 30rpx;
+}
+.publish .tag-list .tag {
+  display: inline-block;
+  width: 16%;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid #F4F4F4;
+  padding: 10rpx 0;
+  border-radius: 8rpx;
+  margin: 15rpx 5% 15rpx 0;
+  font-size: 26rpx;
+}
+.publish .tag-list .tag:nth-child(5n+1) {
+  color: red;
+}
+.publish .tag-list .tag:nth-child(5n-5) {
+  color: greenyellow;
+  margin-right: 0;
+}
+.publish .form-wrp {
+  background-color: #fff;
+  margin: 30rpx 0;
+}
+.publish .form-wrp textarea,
+.publish .form-wrp input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  border: 1px solid #F4F4F4;
+  border-radius: 6rpx;
+}
+.publish .form-wrp textarea {
+  height: 5em;
+  padding: 25rpx;
+}
+.publish .form-wrp input {
+  height: 2.5em;
+}
+.publish .upload-icon {
+  transform: rotate(45deg);
+}
+.publish .publish-upload .upload-btn {
+  height: 220rpx;
+  background: #B1E0D3;
+  position: relative;
+}
+.publish .publish-upload .upload-btn icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -32px;
+  margin-left: -32px;
+}
+.publish .publish-upload .uploaded-item {
+  width: 32%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.publish .publish-upload .uploaded-item:nth-child(3n-1) {
+  margin: 0 2%;
+}
+.publish .publish-upload .uploaded-item .uploaded-img {
+  display: block;
+  width: 100%;
+  height: 220rpx;
+  border-radius: 8rpx;
+}
+.publish .submit-btn {
+  background: #60bfff;
+  width: 70%;
+  margin: 40rpx auto;
+  font-size: 30rpx;
+}

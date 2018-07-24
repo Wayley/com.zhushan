@@ -128,6 +128,19 @@ Page({
   // 自定义handler
   viewTap() { },
 
+  // 设置城市
+  setCity() {
+    wx.navigateTo({
+      url: '../city/city'
+    })
+  },
+
+  // 搜索
+  goSearch: function () {
+    wx.navigateTo({
+      url: '../search/search'
+    })
+  },
   mockoData() {
     var str = '我不知道这会随机出现什么字，但是我必须要用到这个随机汉字，只能这样了，你觉得好吗？那就嘿嘿嘿，字数不够啊，再来几个，这下应该够了吧';
     const types = ['出租', '车找人', '招聘', '失物招领']
@@ -162,7 +175,6 @@ Page({
     this.setData({
       page: this.data.page + 1
     })
-    console.log(this.data.page)
     this.getData();
   },
 

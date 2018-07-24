@@ -1,7 +1,60 @@
-<!--logs.wxml-->
-<view class="container log-list">
-  <!-- <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block> -->
-  <text class="log-item">个人中心</text>
+<!--index.wxml-->
+<view class="user-center">
+
+  <!-- 未登录 -->
+  <view
+    wx:if="{{!hasUserInfo && canIUse}}"
+    class="container no-info"
+  >
+    <button
+      class="btn"
+      type="primary"
+      size="mini"
+      open-type="getUserInfo"
+      bindgetuserinfo="getUserInfo"
+    > 使用微信一键登录 </button>
+  </view>
+  <!-- 已登陆 -->
+  <block wx:else>
+    <view class="userinfo">
+      <image
+        class="userinfo-avatar"
+        src="{{userInfo.avatarUrl}}"
+        background-size="cover"
+      ></image>
+      <view class="userinfo-list">
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        <view class="userinfo-member-info">
+          <span>会员ID:8889999</span>
+          <span>等级:VIP1</span>
+        </view>
+        <text class="userinfo-left-num">可发布100次信息</text>
+      </view>
+    </view>
+
+    <view class="menus">
+      <block
+        wx:for="{{menus}}"
+        wx:key="id"
+      >
+        <navigator
+          url="item.url"
+          class="navigator"
+        >
+          <view class="navigator-text">{{item.label}}</view>
+          <view class="navigator-arrow"></view>
+        </navigator>
+      </block>
+    </view>
+    <view class="parting"></view>
+    <view class="menus">
+      <navigator
+        url=""
+        class="navigator"
+      >
+        <view class="navigator-text">关于我们</view>
+        <view class="navigator-arrow"></view>
+      </navigator>
+    </view>
+  </block>
 </view>

@@ -167,6 +167,9 @@ page {
   left: 0;
   top: 15rpx;
 }
+.main-index .main-index-contain .info-container {
+  padding-top: 20rpx;
+}
 .main-index .main-index-contain .info-container .info-list .info-item {
   display: block;
   border-bottom: 1rpx solid #ececec;

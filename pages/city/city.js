@@ -7,12 +7,46 @@ Page({
   // 页面的初始数据
   data: {
     curCity: '深圳',
-
+    visited: [{
+      id: 1,
+      name: '北京'
+    }, {
+      id: 2,
+      name: '深圳'
+    }, {
+      id: 3,
+      name: '上海'
+    }, {
+      id: 4,
+      name: '广州'
+    }, {
+      id: 5,
+      name: '武汉'
+    }],
+    // 热门
+    hot: [{
+      id: 1,
+      name: '北京'
+    }, {
+      id: 2,
+      name: '深圳'
+    }, {
+      id: 3,
+      name: '上海'
+    }, {
+      id: 4,
+      name: '广州'
+    }, {
+      id: 5,
+      name: '武汉'
+    }, {
+      id: 6,
+      name: '杭州'
+    }],
 
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
-
   },
   // cycle-hook 监听页面初次渲染完成
   onReady() { },

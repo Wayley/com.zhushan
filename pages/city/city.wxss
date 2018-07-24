@@ -52,13 +52,19 @@ page {
 .main-index .main-index-contain .border-b {
   border-bottom: 1px solid #F4F4F4;
 }
+.main-index .main-index-contain .tag-list {
+  margin-top: 30rpx;
+}
 .main-index .main-index-contain .tag-list .tag {
   display: inline-block;
-  width: 33.33%;
+  width: 30%;
   box-sizing: border-box;
   text-align: center;
   border: 1px solid #F4F4F4;
+  padding: 10rpx 0;
+  border-radius: 8rpx;
+  margin-bottom: 15rpx;
 }
 .main-index .main-index-contain .tag-list .tag:nth-child(3n-1) {
-  margin: 0 10px;
+  margin: 0 5%;
 }

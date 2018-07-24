@@ -41,7 +41,9 @@ App({
     console.log(msg);
   },
   onPageNotFound(res) { },
+  // 全局数据
   globalData: {
-    userInfo: null
+    userInfo: null,
+    hasLogin: false,
   }
 })

@@ -23,18 +23,14 @@
         class="container"
         style="margin-top:-20rpx"
       >
-        <view class="border-b city-title">当前城市：{{curCity}}</view>
-        <view class="city-title">
+        <view class="city-title border-b">当前城市：{{curCity}}</view>
+        <view class="city-title border-b">
           <view>定位/最近访问</view>
           <view class="tag-list">
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
-            <view class="tag">深圳</view>
+            <view
+              class="tag"
+              wx:for="{{visited}}"
+            >{{item.name}}</view>
           </view>
         </view>
       </view>
