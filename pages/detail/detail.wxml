@@ -1,0 +1,47 @@
+<view class="detail">
+  <view class="container">
+    <view class="detail-title">竹山绿松石城招贤</view>
+    <view class="detail-contact">
+      <!-- 联系方式和时间 -->
+      <view class="detail-contact-list">
+        <view class="detail-contact-item">
+          <view class="label">发布者电话：</view>13452259099</view>
+        <view class="detail-contact-item">
+          <view class="label">发布时间：</view>2018-07-25 21:09:10</view>
+      </view>
+      <!-- 拨打电话 -->
+      <view class="detail-contact-phone">
+        <image
+          src="../../images/phone.png"
+          alt=""
+        ></image>
+      </view>
+    </view>
+  </view>
+  <view class="parting"></view>
+  <view class="container">
+    <view class="detail-content">
+      <view class="detail-content-title">
+        内容
+      </view>
+      <view class="detail-content-cont">
+        <text>饭店招工，18-45岁，女，包吃包住，工资2300-2800,在十堰，我在宝丰，我爸妈在那上班，绝对真实。有意的联系15897805213。
+        </text>
+        <text>联系我时，请说在宝丰镇便民平台看到的，谢谢！</text>
+      </view>
+    </view>
+  </view>
+  <view class="parting"></view>
+  <!-- <view class="container info-container">
+    <view class="title">最新消息</view>
+    <view class="info-list">
+      <view class="info-item">
+        <text class="info-cont">3333</text>
+        <view class="clearfix">
+          <span class="fl tag blue">招聘</span>
+          <span class="fr">2018-07-25 21:09:10</span>
+        </view>
+      </view>
+    </view>
+  </view> -->
+</view>

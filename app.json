@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/detail/detail",
     "pages/publish/publish",
     "pages/my/my",
     "pages/city/city",
@@ -40,7 +41,7 @@
         "selectedIconPath": "images/log_selected.png"
       },
       {
-        "pagePath": "pages/my/my",
+        "pagePath": "pages/detail/detail",
         "text": "我的",
         "iconPath": "images/home_selected.png",
         "selectedIconPath": "images/log_selected.png"
