@@ -2,5 +2,8 @@
   "onReachBottomDistance": 50,
   "enablePullDownRefresh": true,
   "backgroundColor": "#fff",
-  "backgroundTextStyle": "dark"
+  "backgroundTextStyle": "dark",
+  "usingComponents": {
+    "message-list": "/components/message-list/message-list"
+  }
 }

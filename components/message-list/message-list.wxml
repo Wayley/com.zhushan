@@ -1,0 +1,21 @@
+<view class="info-container">
+  <view
+    class="{{title?'title':''}}"
+    wx:if="{{title}}"
+  >{{title}}</view>
+  <view class="info-list">
+    <view
+      class="info-item"
+      wx:for="{{list}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <text class="info-cont">{{item.cont}}</text>
+      <view class="clearfix">
+        <text class="fl tag blue">{{item.type}}</text>
+        <text class="fr">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+</view>

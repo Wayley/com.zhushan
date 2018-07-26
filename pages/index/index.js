@@ -98,7 +98,10 @@ Page({
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
-    this.mockoData();
+    const olist = this.mockoData();
+    this.setData({
+      olist
+    });
     this.getData();
   },
   // cycle-hook 监听页面初次渲染完成
@@ -147,7 +150,7 @@ Page({
     var olist = [];
     for (let index = 0; index < 100; index++) {
       const item = {
-        index,
+        id: index,
         name: index + 1 + 'item',
         type: types[index % 4],
         cont: str,
@@ -155,9 +158,7 @@ Page({
       }
       olist.push(item)
     }
-    this.setData({
-      olist
-    });
+    return olist;
   },
   getData() {
     let list = this.data.list;

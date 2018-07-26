@@ -6,41 +6,54 @@ const util = require('../../utils/util.js')
 Page({
   // 页面的初始数据
   data: {
-    logs: []
+    isLoading: true,
+    telIcon: '../../images/phone.png',
+    detail: {},// 详情
+    list: [],// 推荐列表
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
-    this.setData({
-      logs: (wx.getStorageSync('logs') || []).map(log => {
-        return util.formatTime(new Date(log))
-      })
-    })
+    wx.showLoading({
+      title: '正在加载..',
+      mask: true
+    });
+    this.getDetail(options.id);
   },
-  // cycle-hook 监听页面初次渲染完成
-  onReady() { },
-  // cycle-hook 监听页面显示
-  onShow() { },
-  // cycle-hook 监听页面隐藏
-  onHid() { },
-  // cycle-hook 监听页面卸载
-  onUnload() { },
-
-  // 页面相关事件处理函数--监听用户下拉动作
-  onPullDownRefresh() { },
-  // 页面上拉触底事件的处理事件
-  onReachBottom() { },
-  // 用户点击右上角转发
-  onShareAppMessage() { },
-  // 页面滚动触发事件的处理事件
-  onPageScroll() { },
-  // 当前是tab页时，点击tab页时触发
-  onTabItemTap(item) { },
-
-
-
-  // 自定义数据
-  customData: {},
-  // 自定义handler
-  viewTap() { }
+  // 模拟数据列表
+  mockoData() {
+    var str = '我不知道这会随机出现什么字，但是我必须要用到这个随机汉字，只能这样了，你觉得好吗？那就嘿嘿嘿，字数不够啊，再来几个，这下应该够了吧';
+    const types = ['出租', '车找人', '招聘', '失物招领']
+    var olist = [];
+    for (let index = 0; index < 10; index++) {
+      const item = {
+        id: index,
+        name: index + 1 + 'item',
+        type: types[index % 4],
+        cont: str,
+        time: index % 2 == 0 ? '06-14' : '07-13'
+      }
+      olist.push(item)
+    }
+    return olist;
+  },
+  // 获取详情
+  getDetail(id) {
+    setTimeout(() => {
+      wx.hideLoading()
+      const detail = {
+        id: 1,
+        title: '竹山绿松石城招贤' + id,
+        tel: '13452259099',
+        time: '2018-07-25 21:09:10',
+        cont: '饭店招工，18-45岁，女，包吃包住，工资2300-2800,在十堰，我在宝丰，我爸妈在那上班，绝对真实。有意的联系15897805213。'
+      }
+      const list = this.mockoData()
+      this.setData({
+        detail,
+        list,
+        isLoading: false
+      })
+    }, 2000);
+  },
 
 })

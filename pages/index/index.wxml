@@ -95,21 +95,11 @@
       <view class="parting"></view>
 
       <!-- 最新消息 -->
-      <view class="container info-container">
-        <view class="title">最新消息</view>
-        <view class="info-list">
-          <view
-            class="info-item"
-            wx:for="{{list}}"
-            wx:key="index"
-          >
-            <text class="info-cont">{{item.cont}}</text>
-            <view class="clearfix">
-              <span class="fl tag blue">{{item.type}}</span>
-              <span class="fr">{{item.time}}</span>
-            </view>
-          </view>
-        </view>
+      <view class="container">
+        <message-list
+          list="{{list}}"
+          title="最新消息"
+        ></message-list>
       </view>
     </scroll-view>
   </view>
