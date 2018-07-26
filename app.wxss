@@ -1,2 +1,4 @@
 @import './pages/common/index.wxss';
-
+image{
+  border-radius: 6rpx;
+}

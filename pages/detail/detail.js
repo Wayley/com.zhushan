@@ -10,6 +10,7 @@ Page({
     telIcon: '../../images/phone.png',
     detail: {},// 详情
     list: [],// 推荐列表
+    adsrc: '/images/ad.png'
   },
   // cycle-hook 监听页面加载
   onLoad(options) {

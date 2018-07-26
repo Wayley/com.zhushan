@@ -58,3 +58,7 @@
   color: #666;
   line-height: 40rpx;
 }
+.detail .ad image {
+  width: 100%;
+  height: 200rpx;
+}

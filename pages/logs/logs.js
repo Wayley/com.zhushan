@@ -1,6 +1,5 @@
 //logs.js
-const util = require('../../utils/util.js')
-
+import util from '../../utils/util'
 Page({
   data: {
     logs: [],
@@ -16,7 +15,7 @@ Page({
 
   },
   onLoad: function () {
-    console.log(this.route, 88);
+    console.log(this.route, 88, util.formatNumber);
 
     this.setData({
       logs: (wx.getStorageSync('logs') || []).map(log => {
