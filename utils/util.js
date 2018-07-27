@@ -49,33 +49,6 @@ const utils = {
       }
     })
   },
-  api(url, methods, data = {}) {
-    if (!url) {
-      console.log('url必填');
-      return;
-    }
-    wx.showNavigationBarLoading()
-    return new Promise((resolve, reject) => {
-      wx.request({
-        url,
-        data,
-        method: methods || 'GET',
-        header: { 'content-Type': 'application/json' },
-        success: (res) => {
-          if (res.statusCode == 200) {
-            resolve(res.data);
-          } else {
-            reject(res)
-          }
-          wx.hideNavigationBarLoading();
-        },
-        fail: (msg) => {
-          wx.hideNavigationBarLoading();
-          reject(msg || 'fail')
-        }
-      })
-    })
-  },
   filterValue(orginData, keyArray) {
     let nobj = {};
     // [].forEach(orginData, (value, key) => {
