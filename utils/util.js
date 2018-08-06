@@ -59,7 +59,7 @@ const utils = {
     //   }
     // });
     return nobj;
-  }
+  },
 }
 
 

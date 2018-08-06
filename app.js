@@ -45,5 +45,6 @@ App({
   globalData: {
     userInfo: null,
     hasLogin: false,
+    townId: '101',// 默认101宝丰镇
   }
 })

@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/city/city",
     "pages/detail/detail",
     "pages/publish/publish",
     "pages/my/my",
-    "pages/city/city",
     "pages/logs/logs",
     "pages/search/search"
   ],

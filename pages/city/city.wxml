@@ -24,17 +24,38 @@
         style="margin-top:-20rpx"
       >
         <view class="city-title border-b">当前城市：{{curCity}}</view>
-        <view class="city-title border-b">
+        <!--  -->
+        <view class="city-title border-b3">
           <view>定位/最近访问</view>
-          <view class="tag-list">
+          <view
+            class="tag-list"
+            bindtap="confirmLocation"
+          >
             <view
               class="tag"
               wx:for="{{visited}}"
-            >{{item.name}}</view>
+              wx:key="index"
+              data-id="{{index}}"
+            >{{item}}</view>
           </view>
         </view>
-      </view>
+        <!--  -->
+        <view class="city-title border-b">
+          <view>全部城镇</view>
+          <view
+            class="tag-list"
+            bindtap="confirmLocation"
+          >
+            <view
+              class="tag"
+              wx:for="{{townList}}"
+              wx:key="index"
+              data-id="{{index}}"
+            >{{item}}</view>
+          </view>
+        </view>
 
+      </view>
     </scroll-view>
   </view>
 </view>

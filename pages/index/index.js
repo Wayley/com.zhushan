@@ -1,6 +1,8 @@
 //
-const util = require('../../utils/util.js')
-// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
+import utils from "../../utils/util";
+import bmap from "../../libs/bmap-wx.min.js";
+
+var wxMarkerData = []
 
 // Page(object)中的object尽可能少
 Page({
@@ -98,38 +100,80 @@ Page({
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
+    // 获取位置
+    wx.getLocation({
+      type: 'wgs84',
+      success: (res) => {
+        // console.log(res, 11111)
+      }
+    })
+    wx.getLocation({
+      type: 'gcj02',
+      success: (res) => {
+        // console.log(res, 12222)
+        this.initMap()
+      },
+    })
+
+
+    //
     const olist = this.mockoData();
     this.setData({
       olist
     });
     this.getData();
   },
-  // cycle-hook 监听页面初次渲染完成
-  onReady() { },
-  // cycle-hook 监听页面显示
-  onShow() { },
-  // cycle-hook 监听页面隐藏
-  onHid() { },
-  // cycle-hook 监听页面卸载
-  onUnload() { },
 
-  // 页面相关事件处理函数--监听用户下拉动作
-  onPullDownRefresh() { },
-  // 页面上拉触底事件的处理事件
-  onReachBottom() { },
-  // 用户点击右上角转发
-  onShareAppMessage() { },
-  // 页面滚动触发事件的处理事件
-  onPageScroll() { },
-  // 当前是tab页时，点击tab页时触发
-  onTabItemTap(item) { },
+  onReady() {
+    console.log(123333)
+    wx.getSetting({
+      success: (res) => {
+        console.log('getSetting', res)
+      },
+      fail: (res) => {
+        console.log('fail', res)
 
+      },
+      complete: (res) => {
+        console.log('complete', res)
+
+      }
+    })
+  },
 
 
   // 自定义数据
   customData: {},
   // 自定义handler
-  viewTap() { },
+  initMap() {
+    // console.log('1111')
+    var that = this;
+    var BMap = new bmap.BMapWX({
+      // ak: 'OY2jAC3FmXxVeMB1nLPxXnNmNY3pUtq5'
+      ak: 'OY2jAC3FmXxVeMB1nLPxXnNmNY3pUtq5'
+    });
+    var fail = function (data) {
+      console.log(data)
+    };
+    var success = function (data) {
+      // console.log(data, 'ssss')
+
+      wxMarkerData = data.wxMarkerData;
+      that.setData({
+        markers: wxMarkerData
+      });
+      that.setData({
+        latitude: wxMarkerData[0].latitude
+      });
+      that.setData({
+        longitude: wxMarkerData[0].longitude
+      });
+    }
+    BMap.regeocoding({
+      fail,
+      success,
+    });
+  },
 
   // 设置城市
   setCity() {

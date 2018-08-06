@@ -1,10 +1,13 @@
-const $apis = {
+import config from "../config";
 
-  api(url, methods, data = {}) {
+const $apis = {
+  // 网络请求
+  request(url, methods = '', data = {}) {
     if (!url) {
       throw Error('url必填');
     }
-    wx.showNavigationBarLoading()
+    url = config.baseURL + '/' + url;// 添加前缀
+    wx.showNavigationBarLoading();
     return new Promise((resolve, reject) => {
       wx.request({
         url,
@@ -27,3 +30,4 @@ const $apis = {
     })
   },
 }
+export default $apis;

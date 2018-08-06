@@ -1,79 +1,49 @@
-//
-const util = require('../../utils/util.js')
-// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
 
-// Page(object)中的object尽可能少
+import utils_ from "../../utils/util";
+import $apis from "../../API/index";
+
+
+const app = getApp()
+
 Page({
   // 页面的初始数据
   data: {
     curCity: '深圳',
-    visited: [{
-      id: 1,
-      name: '北京'
-    }, {
-      id: 2,
-      name: '深圳'
-    }, {
-      id: 3,
-      name: '上海'
-    }, {
-      id: 4,
-      name: '广州'
-    }, {
-      id: 5,
-      name: '武汉'
-    }],
+    visited: {
+      '10002': '北京',
+      '100044': '宝丰'
+    },
     // 热门
-    hot: [{
-      id: 1,
-      name: '北京'
-    }, {
-      id: 2,
-      name: '深圳'
-    }, {
-      id: 3,
-      name: '上海'
-    }, {
-      id: 4,
-      name: '广州'
-    }, {
-      id: 5,
-      name: '武汉'
-    }, {
-      id: 6,
-      name: '杭州'
-    }],
-
+    hot: {
+      '10002': '北京',
+      '10003': '深圳',
+    },
+    // 全部
+    townList: {},
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
+    $apis.request('getDataType/100').then(res => {
+      const townList = res.data || {};
+      this.setData({
+        townList
+      })
+    })
   },
-  // cycle-hook 监听页面初次渲染完成
-  onReady() { },
-  // cycle-hook 监听页面显示
-  onShow() { },
-  // cycle-hook 监听页面隐藏
-  onHid() { },
-  // cycle-hook 监听页面卸载
-  onUnload() { },
-
-  // 页面相关事件处理函数--监听用户下拉动作
-  onPullDownRefresh() { },
-  // 页面上拉触底事件的处理事件
-  onReachBottom() { },
-  // 用户点击右上角转发
-  onShareAppMessage() { },
-  // 页面滚动触发事件的处理事件
-  onPageScroll() { },
-  // 当前是tab页时，点击tab页时触发
-  onTabItemTap(item) { },
 
 
 
   // 自定义数据
   customData: {},
-  // 自定义handler
-  viewTap() { },
+  // 选择位置
+  confirmLocation(e) {
+    const townId = e.target.dataset['id'] || '';
+    // 手动更改位置
+    app.globalData.townId = townId;
+    wx.switchTab({
+      url: '../index/index'
+    })
+  },
 
   goSearch() {
     wx.navigateTo({
