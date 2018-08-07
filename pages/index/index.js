@@ -149,8 +149,7 @@ Page({
     // console.log('1111')
     var that = this;
     var BMap = new bmap.BMapWX({
-      // ak: 'OY2jAC3FmXxVeMB1nLPxXnNmNY3pUtq5'
-      ak: 'OY2jAC3FmXxVeMB1nLPxXnNmNY3pUtq5'
+      ak: '-------'
     });
     var fail = function (data) {
       console.log(data)
