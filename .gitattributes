@@ -1,1 +1,5 @@
 *.css linguist-language = mini-program
+*.less linguist-language = mini-program
+*.wxss linguist-language = mini-program
+*.js linguist-language = mini-program
+*.wxml linguist-language = mini-program
