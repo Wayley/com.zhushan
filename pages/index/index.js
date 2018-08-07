@@ -26,53 +26,55 @@ Page({
 
     menuList: [
       {
-        id: 1,
-        url: '/pages/my/my',
+        id: 201,
+        url: '/pages/list/list',
         iconClass: 'for-car',
         name: '人找车'
-      }, {
-        id: 2,
-        url: '/pages/my/my',
+      },
+      {
+        id: 202,
+        url: '/pages/list/list',
         iconClass: 'sale',
         name: '出售'
-      }, {
-        id: 3,
-        url: '/pages/my/my',
+      },
+      {
+        id: 203,
+        url: '/pages/list/list',
         iconClass: 'employ',
         name: '招聘'
       }, {
-        id: 4,
-        url: '/pages/my/my',
+        id: 204,
+        url: '/pages/list/list',
         iconClass: 'transfer',
         name: '转让'
       }, {
-        id: 5,
-        url: '/pages/my/my',
+        id: 205,
+        url: '/pages/list/list',
         iconClass: 'help',
         name: '求助'
       }, {
-        id: 6,
-        url: '/pages/my/my',
+        id: 206,
+        url: '/pages/list/list',
         iconClass: 'for-person',
         name: '车找人'
       }, {
-        id: 7,
-        url: '/pages/my/my',
+        id: 207,
+        url: '/pages/list/list',
         iconClass: 'land',
         name: '出租'
       }, {
-        id: 8,
-        url: '/pages/my/my',
+        id: 208,
+        url: '/pages/list/list',
         iconClass: 'for-job',
         name: '求职'
       }, {
-        id: 9,
-        url: '/pages/my/my',
+        id: 209,
+        url: '/pages/list/list',
         iconClass: 'for-goods',
         name: '求购'
       }, {
-        id: 0,
-        url: '/pages/my/my',
+        id: 210,
+        url: '/pages/list/list',
         iconClass: 'asking',
         name: '打听'
       },
@@ -146,17 +148,14 @@ Page({
   customData: {},
   // 自定义handler
   initMap() {
-    // console.log('1111')
     var that = this;
     var BMap = new bmap.BMapWX({
-      ak: '-------'
+      ak: 'LICVvvKWXB60iDu2UvQNWIvb1QZqpA7c'
     });
     var fail = function (data) {
       console.log(data)
     };
     var success = function (data) {
-      // console.log(data, 'ssss')
-
       wxMarkerData = data.wxMarkerData;
       that.setData({
         markers: wxMarkerData

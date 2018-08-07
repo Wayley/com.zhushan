@@ -60,7 +60,7 @@
             wx:key="id"
           >
             <navigator
-              url="{{item.url}}"
+              url="{{item.url + '?tid=' + item.id + '&tname=' + item.name}}"
               hover-class="navigator-hover"
             >
               <span class="icon {{item.iconClass}}"></span>

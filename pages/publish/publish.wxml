@@ -11,7 +11,7 @@
           wx:for="{{typeList}}"
           wx:key="index"
           data-id="{{index}}"
-        >{{index}}</view>
+        >{{item}}</view>
       </view>
     </view>
     <view class="parting"></view>
