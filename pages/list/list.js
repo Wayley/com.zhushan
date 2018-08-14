@@ -1,45 +1,29 @@
-//
-const util = require('../../utils/util.js')
-// object 内容在页面加载时会进行一次深拷贝，需考虑数据大小对页面加载的开销
 
-// Page(object)中的object尽可能少
+import util from "../../utils/util";
+import $apis from "../../API/index";
+var appInstance = getApp()
+
 Page({
-  // 页面的初始数据
   data: {
-    curTid: '',
-    curTname: ''
+    curTid: '',// 信息类型
+    curTname: '',// 信息类型名称
+    page: 1,
+    list: [],
   },
-  // cycle-hook 监听页面加载
   onLoad(options) {
+    // 获取页面信息类型参数
     const curTid = options.tid;
     const curTname = options.tname;
     this.setData({
       curTid,
       curTname
-    })
+    });
+    // 修改导航Title
     wx.setNavigationBarTitle({
       title: options.tname + ' 信息列表'
     })
+    this.getData()
   },
-  // cycle-hook 监听页面初次渲染完成
-  onReady() { },
-  // cycle-hook 监听页面显示
-  onShow() { },
-  // cycle-hook 监听页面隐藏
-  onHid() { },
-  // cycle-hook 监听页面卸载
-  onUnload() { },
-
-  // 页面相关事件处理函数--监听用户下拉动作
-  onPullDownRefresh() { },
-  // 页面上拉触底事件的处理事件
-  onReachBottom() { },
-  // 用户点击右上角转发
-  onShareAppMessage() { },
-  // 页面滚动触发事件的处理事件
-  onPageScroll() { },
-  // 当前是tab页时，点击tab页时触发
-  onTabItemTap(item) { },
 
 
 
@@ -47,7 +31,30 @@ Page({
   customData: {
     aa: '222'
   },
-  // 自定义handler
-  viewTap() { }
+  getData() {
+    console.log(new Date(1523603666000), 99)
+
+    const params = {
+      page: this.data.page,
+      newstype: this.data.curTid,
+      town: appInstance.globalData.townId
+    }
+    $apis.request('queryNewsInfo', 'POST', params).then(res => {
+      const list = res.data.news || [];
+      this.setData({
+        list
+      })
+    })
+  },
+  formatTime(date) {
+    return new Date(date)
+  },
+  // 滚动
+  searchScrollLower() {
+    this.setData({
+      page: this.data.page + 1
+    })
+    this.getData();
+  },
 
 })

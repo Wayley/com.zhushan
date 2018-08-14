@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "信息列表"
+  "navigationBarTitleText": "信息列表",
+  "usingComponents": {
+    "message-list": "/components/message-list/message-list"
+  }
 }

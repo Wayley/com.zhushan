@@ -112,8 +112,8 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
-        // console.log(res, 12222)
         this.initMap()
+        console.log(res, 12222, this.data)
       },
     })
 
@@ -127,20 +127,6 @@ Page({
   },
 
   onReady() {
-    console.log(123333)
-    wx.getSetting({
-      success: (res) => {
-        console.log('getSetting', res)
-      },
-      fail: (res) => {
-        console.log('fail', res)
-
-      },
-      complete: (res) => {
-        console.log('complete', res)
-
-      }
-    })
   },
 
 
@@ -207,9 +193,7 @@ Page({
     const s = (this.data.page - 1) * 15;
     const e = (this.data.page + 1) * 15;
     const nlist = this.data.olist.slice(s, e);
-    list = list.concat(nlist)
-    // console.log(nlist, s, e)
-
+    list = list.concat(nlist);
     this.setData({
       list
     })

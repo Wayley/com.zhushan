@@ -12,8 +12,8 @@ const $apis = {
       wx.request({
         url,
         data,
-        method: methods || 'GET',
-        header: { 'content-Type': 'application/json' },
+        method: methods.toUpperCase() || 'GET',
+        header: { 'content-type': 'application/json' },
         success: (res) => {
           if (res.statusCode == 200) {
             resolve(res.data);

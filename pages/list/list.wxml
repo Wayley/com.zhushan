@@ -1,3 +1,15 @@
 <view class="container">
-  <text>Template</text>
+  <view>
+    <scroll-view
+      scroll-y
+      bindscrolltolower="searchScrollLower"
+    >
+      <view class="container">
+        <message-list
+          list="{{list}}"
+          title="最新消息"
+        ></message-list>
+      </view>
+    </scroll-view>
+  </view>
 </view>

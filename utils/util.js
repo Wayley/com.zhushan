@@ -1,4 +1,9 @@
 const utils = {
+  $date: {
+    getMD(date) {
+
+    }
+  },
   formatTime(date) {
     const year = date.getFullYear()
     const month = date.getMonth() + 1
@@ -7,7 +12,7 @@ const utils = {
     const minute = date.getMinutes()
     const second = date.getSeconds()
 
-    return [year, month, day].map(this.formatNumber).join('/') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
+    return [year, month, day].map(this.formatNumber).join('-') + ' ' + [hour, minute, second].map(this.formatNumber).join(':')
   },
   formatNumber(n) {
     n = n.toString()
