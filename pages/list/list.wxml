@@ -7,7 +7,7 @@
       <view class="container">
         <message-list
           list="{{list}}"
-          title="最新消息"
+          title="消息列表"
         ></message-list>
       </view>
     </scroll-view>

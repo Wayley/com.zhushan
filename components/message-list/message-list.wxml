@@ -14,7 +14,7 @@
       <text class="info-cont">{{item.content}}</text>
       <view class="clearfix">
         <text class="fl tag blue">{{item.newstype}}</text>
-        <text class="fr">{{ new Date(item.create_time) }}</text>
+        <text class="fr">{{item.create_time}}</text>
       </view>
     </view>
   </view>

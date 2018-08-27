@@ -21,9 +21,12 @@ Page({
         id: 'football2',
         url: '/pages/my/my',
         img: '/images/banner_2.png'
+      }, {
+        id: 'football23',
+        url: '/pages/my/my',
+        img: '/images/menu_icons/for_car.png'
       }
     ],
-
     menuList: [
       {
         id: 201,
@@ -79,7 +82,6 @@ Page({
         name: '打听'
       },
     ],
-
     recomNews: [
       {
         id: 1,
@@ -97,8 +99,6 @@ Page({
       //   url: '/pages/my/my',
       // }
     ],
-
-
   },
   // cycle-hook 监听页面加载
   onLoad(options) {
@@ -112,7 +112,7 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success: (res) => {
-        this.initMap()
+        // this.initMap()
         console.log(res, 12222, this.data)
       },
     })
@@ -136,7 +136,7 @@ Page({
   initMap() {
     var that = this;
     var BMap = new bmap.BMapWX({
-      ak: 'LICVvvKWXB60iDu2UvQNWIvb1QZqpA7c'
+      // ak: 'LICVvvKWXB60iDu2UvQNWIvb1QZqpA7c'
     });
     var fail = function (data) {
       console.log(data)
@@ -180,9 +180,9 @@ Page({
       const item = {
         id: index,
         name: index + 1 + 'item',
-        type: types[index % 4],
-        cont: str,
-        time: index % 2 == 0 ? '06-14' : '07-13'
+        newstype: types[index % 4],
+        content: str,
+        create_time: index % 2 == 0 ? '06-14' : '07-13'
       }
       olist.push(item)
     }
