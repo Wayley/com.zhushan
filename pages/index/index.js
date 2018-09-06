@@ -4,7 +4,6 @@ import bmap from "../../libs/bmap-wx.min.js";
 
 var wxMarkerData = []
 
-// Page(object)中的object尽可能少
 Page({
   // 页面的初始数据
   data: {
@@ -129,10 +128,6 @@ Page({
   onReady() {
   },
 
-
-  // 自定义数据
-  customData: {},
-  // 自定义handler
   initMap() {
     var that = this;
     var BMap = new bmap.BMapWX({
